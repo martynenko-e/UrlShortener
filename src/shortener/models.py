@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
-from utils import code_generator, create_shortcode
+from utils import create_shortcode
 
 # Create your models here.
 
@@ -12,7 +12,7 @@ class ShortUrlManager(models.Manager):
         qs = qs_main.filter(active=True)
         return qs
 
-    def refresh_shortcodes(self):
+    def refresh_shortcodes(self, items=100):
         qs = ShortUrl.objects.filter(id__gte=1)
         new_codes = 0
         for q in qs:

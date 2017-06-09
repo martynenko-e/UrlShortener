@@ -1,4 +1,5 @@
 *.pyc
 .idea
 db
-shortener/migrations
+src/shortener/migrations
+src/static/admin
