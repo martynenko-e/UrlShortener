@@ -17,9 +17,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from shortener.views import ShortUrlView, HomeView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', HomeView.as_view()),
+    url(r'^(?P<shortcode>[\w-]+){6, 15}/$', ShortUrlView.as_view()),
 ]
 
 # ... the rest of your URLconf goes here ...
