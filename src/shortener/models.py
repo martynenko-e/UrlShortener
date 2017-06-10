@@ -4,9 +4,10 @@ from django.db import models
 from utils import create_shortcode
 from django.conf import settings
 from .validators import url_validator
-
+from django.core.urlresolvers import reverse
 # Create your models here.
 SHORTCODE_MAX = getattr(settings, "SHORTCODE_MAX", 15)
+HOST_NAME = getattr(settings, "HOST_NAME", 'http://127.0.0.1:9000')
 
 
 class ShortUrlManager(models.Manager):
@@ -33,6 +34,10 @@ class ShortUrl(models.Model):
     active = models.BooleanField(default=True)
 
     objects = ShortUrlManager()
+
+    def get_short_url(self):
+        url_path = reverse('scode', kwargs={"shortcode": self.shortcode})
+        return HOST_NAME + url_path
 
     def save(self, *args, **kwargs):
         if not self.shortcode:

@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # custom app
+    'analytics',
     'shortener',
+
 ]
 
 MIDDLEWARE_CLASSES = [

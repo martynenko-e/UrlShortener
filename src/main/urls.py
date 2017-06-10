@@ -22,7 +22,7 @@ from shortener.views import ShortUrlView, HomeView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
-    url(r'^(?P<shortcode>[\w-]+){6, 15}/$', ShortUrlView.as_view()),
+    url(r'^(?P<shortcode>[\w-]+)/$', ShortUrlView.as_view(), name='scode'),
 ]
 
 # ... the rest of your URLconf goes here ...
