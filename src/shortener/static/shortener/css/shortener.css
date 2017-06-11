@@ -11,3 +11,12 @@ h1 {
 .shrt-content {
     margin-top: 5%;
 }
+
+.home-title a {
+    color: #3c763d;
+}
+
+.home-title a:hover {
+    color: #2b542c;
+    text-decoration: none;
+}

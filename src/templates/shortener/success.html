@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block pagecontent %}
-<h1>{{ title_text }}</h1>
+<h2>{{ title_text }}</h2>
 <div class="input-group">
            <span class="input-group-btn">
                 <a class='btn btn-success btn-copy' data-clipboard-text='{{ short_url }}'>Copy</a>
@@ -13,7 +13,8 @@
 <br/>
 <br/>
 <hr/>
-<h1>Create Another..</h1>
+<br/>
+<h2>Create Another..</h2>
 <form method="POST" action="."> {% csrf_token %}
     <div class="input-group">
         <input type='text' class='form-control' name='url' placeholder="Long URL" />

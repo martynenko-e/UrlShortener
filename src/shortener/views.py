@@ -15,7 +15,7 @@ class HomeView(View):
     def get(self, request, *args, **kwargs):
         the_form = SubmitUrlForm()
         context = {
-            "title": "Short of url",
+            "title": "Short that url",
             "form": the_form
         }
         return render(request, "shortener/home.html", context)
@@ -37,10 +37,10 @@ class HomeView(View):
                 "created": created
             }
             if created:
-                context.update({"title_text": "Success! Shortlink created"})
+                context.update({"title_text": "Success! Shortlink created!"})
                 template = "shortener/success.html"
             else:
-                context.update({"title_text": "Success! Shortlink created..."})
+                context.update({"title_text": "Success! Shortlink created!"})
                 template = "shortener/already-exists.html"
         else:
             context.update({"form_valid": False})

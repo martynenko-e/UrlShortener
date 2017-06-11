@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block pagecontent %}
-<h1>{{ title }}</h1>
+<h2>{{ title }}</h2>
 <form method="POST" action="."> {% csrf_token %}
     {% if form.url.errors %}
     <div class="input-group has-error">
@@ -16,11 +16,11 @@
     </div>
         {% if form.url.errors %}
         <br/>
-    <ul>
+
         {% for error in form.url.errors %}
-        <li>{{ error }}</li>
+        <p>{{ error }}</p>
         {% endfor %}
-    </ul>
+
     {% endif %}
 </form>
 {% endblock pagecontent %}
