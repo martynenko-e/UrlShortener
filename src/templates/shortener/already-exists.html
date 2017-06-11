@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block pagecontent %}
 <h1>{{ title_text }}</h1>
 <div class="input-group">
@@ -22,3 +23,7 @@
     </div>
 </form>
 {% endblock pagecontent %}
+
+{% block script %}
+    <script src="{% static 'shortener/js/clipboard-copy.js' %}"></script>
+{% endblock script %}

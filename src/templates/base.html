@@ -13,19 +13,24 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{% static 'shortener/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'shortener/css/shortener.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.13/clipboard.min.js"></script>
+    {% block script %}
+    {% endblock script %}
     <title>{{ title }}</title>
 </head>
 <body>
 <div class="content">
     <div class="shrt-content">
-    <div class="row text-center">
-        <h1><a href="/">Go home</a></h1>
-        <div class="col-xs-8 col-sm-4 col-xs-offset-2 col-sm-offset-4">
-            {% block pagecontent %}
-            {% endblock %}
+        <div class="row text-center">
+            <h1><a href="/">Go home</a></h1>
+            <div class="col-xs-8 col-sm-4 col-xs-offset-2 col-sm-offset-4">
+                {% block pagecontent %}
+                {% endblock %}
+            </div>
         </div>
     </div>
-        </div>
 </div>
 </body>
+
 </html>
