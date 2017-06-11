@@ -8,5 +8,5 @@ def url_validator(value):
     try:
         url_validator_obj(value)
     except:
-        raise forms.ValidationError("Invalid url")
+        raise forms.ValidationError("Invalid url, please enter proper one")
     return value

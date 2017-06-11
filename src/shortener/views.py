@@ -31,13 +31,19 @@ class HomeView(View):
             new_url = form.cleaned_data.get('url')
             obj, created = ShortUrl.objects.get_or_create(url=new_url)
             context = {
+                "form": form,
+                "url": obj.url,
                 "short_url": obj.get_short_url(),
                 "created": created
             }
             if created:
+                context.update({"title_text": "Success! Shortlink created"})
                 template = "shortener/success.html"
             else:
+                context.update({"title_text": "Success! Shortlink created..."})
                 template = "shortener/already-exists.html"
+        else:
+            context.update({"form_valid": False})
         return render(request, template, context)
 
 

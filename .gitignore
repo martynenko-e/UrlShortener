@@ -4,3 +4,4 @@ db
 src/shortener/migrations
 src/static/admin
 src/analytics/migrations
+src/static

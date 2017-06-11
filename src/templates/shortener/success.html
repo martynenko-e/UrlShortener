@@ -1,13 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <p>{{ created }}t</p>
-    <p><a href="{{ short_url }}"> {{ short_url }}</a></p>
-      <p>clicked: {{ clicked }}</p>
-<p><a href="/">+ New</a></p>
-</body>
-</html>
+{% extends "base.html" %}
+{% block pagecontent %}
+<h1>{{ title_text }}</h1>
+<div class="input-group">
+           <span class="input-group-btn">
+                <a class='btn btn-success btn-copy' data-clipboard-text='{{ short_url }}'>Copy</a>
+              </span>
+    <input class='form-control' type='text' value='{{ short_url }}'/>
+</div>
+<br/>
+<p>Original: {{ url }}</p>
+<br/>
+<br/>
+<hr/>
+<h1>Create Another..</h1>
+<form method="POST" action="."> {% csrf_token %}
+    <div class="input-group">
+        <input type='text' class='form-control' name='url' placeholder="Long URL" />
+        <span class="input-group-btn">
+        <input class="btn btn-success" type="submit" value="Shorten">
+             </span>
+    </div>
+</form>
+{% endblock pagecontent %}

@@ -1,15 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>{{ title }}</h1>
-    <form method="POST" action="."> {% csrf_token %}
-        {{ form.as_p }}
-        <!--<input type="text" placeholder="url">-->
-        <input type="submit" value="Shorten">
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+{% block pagecontent %}
+<h1>{{ title }}</h1>
+<form method="POST" action="."> {% csrf_token %}
+    {% if form.url.errors %}
+    <div class="input-group has-error">
+        {% else %}
+        <div class="input-group">
+        {% endif %}
+        {% for field in form %}
+            {{ field }}
+        {% endfor %}
+        <span class="input-group-btn">
+        <input class="btn btn-success" type="submit" value="Shorten">
+             </span>
+    </div>
+        {% if form.url.errors %}
+        <br/>
+    <ul>
+        {% for error in form.url.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</form>
+{% endblock pagecontent %}
+
+
