@@ -5,4 +5,10 @@ from django.contrib import admin
 
 # Register your models here.
 
-admin.site.register(ShortUrl)
+
+class ShortUrlAdmin(admin.ModelAdmin):
+    list_display = ['url', 'shortcode', 'get_short_url', 'active']
+    list_editable = ['shortcode']
+
+
+admin.site.register(ShortUrl, ShortUrlAdmin)
